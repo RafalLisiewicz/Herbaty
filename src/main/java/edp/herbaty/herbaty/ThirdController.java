@@ -30,9 +30,8 @@ public class ThirdController implements Initializable {
     @FXML
     protected void onCommentAddClick() {
         Runnable subTaskWithLambda = () -> {
-            TeaHolder holder = TeaHolder.getInstance();
-            DBControl baza = new DBControl();
-            baza.addComment(holder.getTea().getString("Type"), comment.getText());
+            DBAccess baza = new DBAccess();
+            baza.addComment(comment.getText());
             comment.clear();
         };
         Thread subTask = new Thread(subTaskWithLambda);

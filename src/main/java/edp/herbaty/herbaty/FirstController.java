@@ -9,17 +9,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class FirstController implements Initializable {
     @FXML
     private Label welcomeText;
     @FXML
@@ -37,7 +35,8 @@ public class HelloController implements Initializable {
                 teas = teaTypes.getTeas();
                 ObservableList<String> availableChoices = FXCollections.observableArrayList(types);
                 choice.setItems(availableChoices);
-            } catch (Exception e){}
+            } catch (Exception e) {
+            }
         };
         Thread subTask = new Thread(subTaskWithLambda);
         subTask.start();
@@ -52,15 +51,8 @@ public class HelloController implements Initializable {
     @FXML
     protected void onWindowButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("second-view.fxml"));
-        TeaHolder holder = TeaHolder.getInstance();
-        for(Object tea: teas)
-        {
-            JSONObject temp = (JSONObject) tea;
-            if ((temp.getString("Type").equals(choice.getValue()))){
-                holder.setTea(temp);
-                break;
-            }
-        }
+        TeaSetter setter = new TeaSetter();
+        setter.setTea(teas, choice.getValue());
         Scene scene = new Scene(fxmlLoader.load(), 800, 400);
         Stage stage = new Stage();
         stage.setTitle(choice.getValue());

@@ -31,8 +31,8 @@ public class FourthController implements Initializable {
         welcomeText.setText(holder.getTea().getString("Type"));
 
         Runnable subTaskWithLambda = () -> {
-            DBControl baza = new DBControl();
-            comments.getItems().addAll(baza.getComments(holder.getTea().getString("Type")));
+            DBAccess baza = new DBAccess();
+            comments.getItems().addAll(baza.getComments());
         };
         Thread subTask = new Thread(subTaskWithLambda);
         subTask.start();
@@ -64,11 +64,10 @@ public class FourthController implements Initializable {
     @FXML
     protected void onDeleteBtnClick() {
         Runnable subTaskWithLambda = () -> {
-            DBControl baza = new DBControl();
+            DBAccess baza = new DBAccess();
             baza.deleteComment(comment);
-            TeaHolder holder = TeaHolder.getInstance();
             comments.getItems().clear();
-            comments.getItems().addAll(baza.getComments(holder.getTea().getString("Type")));
+            comments.getItems().addAll(baza.getComments());
         };
         Thread subTask = new Thread(subTaskWithLambda);
         subTask.start();

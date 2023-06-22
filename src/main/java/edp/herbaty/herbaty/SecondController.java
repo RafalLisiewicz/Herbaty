@@ -29,11 +29,10 @@ public class SecondController implements Initializable {
 
     public void setData() {
         TeaHolder holder = TeaHolder.getInstance();
+        TextFormatter formatter = new TextFormatter();
         JSONObject tea = holder.getTea();
         welcomeText.setText(tea.getString("Type"));
-        Text text = new Text(tea.toString(4).replace("\"", "").replace("{", "").replace("}", "").replace(",",", "));
-        text.setFont(Font.font("Times New Roman", 18));
-        text.setLineSpacing(12);
+        Text text = formatter.formatText(tea);
         teaData.getChildren().add(text);
     }
 

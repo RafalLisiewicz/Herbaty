@@ -24,7 +24,8 @@ public class TeaApi {
         }
         return null;
     }
-    public JSONArray getTeas() throws IOException{
+
+    public JSONArray getTeas() throws IOException {
         String response = Request.get("https://my-json-server.typicode.com/sreeharshrajan/tea-collection/types_of_tea").execute().returnContent().asString();
         JSONArray teas = new JSONArray(response);
         return teas;
