@@ -29,8 +29,8 @@ public class DBControl {
     }
 
     public void addComment(String type, String comment) {
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
 
         try {
             Class.forName("org.sqlite.JDBC");
@@ -51,8 +51,8 @@ public class DBControl {
     }
 
     public ArrayList<String> getComments(String type) {
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
         ArrayList<String> ret = new ArrayList<>();
         try {
             Class.forName("org.sqlite.JDBC");
@@ -74,8 +74,8 @@ public class DBControl {
     }
 
     public void deleteComment(String body) {
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
 
         try {
             Class.forName("org.sqlite.JDBC");
