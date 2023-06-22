@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edp.herbaty.herbaty.FourthController">
+   <children>
+      <AnchorPane prefHeight="106.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="welcomeText" layoutX="188.0" layoutY="4.0" prefHeight="99.0" prefWidth="224.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <HBox prefHeight="301.0" prefWidth="600.0">
+         <children>
+            <ListView fx:id="comments" prefHeight="296.0" prefWidth="371.0" />
+            <AnchorPane prefHeight="296.0" prefWidth="244.0">
+               <children>
+                  <Button fx:id="backBtn" layoutX="74.0" layoutY="176.0" mnemonicParsing="false" onAction="#onOldWindowButtonClick" text="Go back">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="deleteBtn" layoutX="42.0" layoutY="67.0" mnemonicParsing="false" onAction="#onDeleteBtnClick" text="Usuń komentarz">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</VBox>
